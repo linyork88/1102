@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>物件&陣列</title>
+</head>
+<body>
+    <script>
+        //物件:可以包裹(封裝) 其他資料的東西
+        // 創造一個新的物件 {成員名稱:資料, 成員名稱:資料, ...}
+        /*
+        let point={
+            x:3,y:4 , show:function(){
+                console.log(this.x, this.y); //印出x, y
+            }
+        };
+        //取得物件的成員: 物件.成員名稱
+        console.log(point.x, point.y);
+        console.log(point.show);
+        //新增、修改物件的成員
+        point.z=10;//新增成員
+        point.show=function(){ //修改成員的資料
+            console.log(this.x, this.y, this.z);
+        }
+        point.show();
+        */
+
+        //陣列:可以包裹其他資料的東西，有順序性和編號
+        // 建立陣列:[資料, 資料, 資料, ...]
+        /*
+        let data=[60, 40, 80];
+        console.log(data);
+        //取得陣列的長度
+        console.log(data.length);
+        //取得陣列中的資料:陣列[編號]
+        console.log(data[0], data[1], data[2]);
+        //新增資料
+        data.push(50);
+        data.push(100);
+        console.log(data);
+        //逐一取得陣列裡的每個資料
+        let sum=0
+        for(let i=0;i<data.length;i++){
+            sum+=data[i];
+        }
+        let avg=sum/data.length;
+        console.log(avg);
+        */
+        //JSON (JavaScript Object Notation)
+        /*
+        let cart={
+            "total":170000,"products":[
+                {
+                    "name":"Mac Air",
+                    "price":50000,
+                    "qty":2
+                },
+                {
+                    "name":"Surface",
+                    "price":70000,
+                    "qty":1
+                }
+            ]
+        };
+        console.log(cart);
+        console.log(cart.total);
+        console.log(cart.products[0].name);
+        */
+        
+    </script>
+    
+</body>
+</html>

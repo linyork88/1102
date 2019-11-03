@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object and Array</title>
+</head>
+<body>
+    <h3>內湖科技園區搜尋</h3>
+    <div>
+        <input type="text" id="keyword" />
+        <button onclick="search();">Search</button>
+    </div>
+    <div id="result">
+
+    </div>
+        <script>
+        function search(){
+            let keyword=document.querySelector("#keyword").Value;
+            let result=document.querySelector("#result");
+            result.innerHTML="";//清空
+            for(let i=0;i<companies.length;i++){
+                // 逐一搜尋公司名稱:字串.indexOf(關鍵字)
+                if(companies[i]["公司名稱"].indexOf(keyword)>-1){
+                    //console.log(companies[i]["公司名稱"]);
+                    result.innerHTML+=companies[i]["公司名稱"]+"、";
+                }
+            }
+
+        }
+        //使用 AJAX連線到某個網址
+        let companies;
+        let src="https://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=296acfa2-5d93-4706-ad58-e83cc951863c"
+        fetch(src).then(function(response){
+            //抓到原始資料、用JSON格式解讀
+            return response.json();            
+        }).then(function(data){
+            //抓到解讀完畢得資料，印出來
+            companies=data.result.results;
+        });
+
+
+        </script>
+    
+</body>
+</html>

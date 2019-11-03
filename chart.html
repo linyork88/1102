@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart(){
+          drawlinechart();
+          drawPieChart();
+      }
+      function drawlinechart(){
+          /*
+        let data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses'],
+          ['2004',  1000,      400],
+          ['2005',  1170,      460],
+          ['2006',  660,       1120],
+          ['2007',  1030,      540]
+        ]);
+        */
+        let data = new google.visualization.DataTable();
+        data.addColumn('string', 'Year');
+        data.addColumn('number', 'sales');
+        data.addColumn({type:"string", role:"annotation"});
+        data.addColumn('number', 'expenses');
+        data.addRows([
+          ['2004',  1000, null, 400],
+          ['2005',  1170 ,null, 460],
+          ['2006',  660, "good" , 1120],
+          ['2007',  1030, null, 540]
+        ])
+
+
+        let options = {
+          title: 'Company Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        let chart = new google.visualization.LineChart(document.getElementById('linechart'));
+
+        chart.draw(data, options);
+
+      }
+      function drawPieChart() {
+        //準備資料
+        let data = google.visualization.arrayToDataTable([
+          ['browser', 'Marker Share'],
+          ['chrome',     70],
+          ['firefox',      10],
+          ['safari',  10],
+          ['others', 10],
+        ]);
+        //設定一下
+        let options = {
+          title: '瀏覽器的市場佔有率',
+          is3D:true,
+          colors:['#880000','#aa4444','#cc8888','#f44444']
+        };
+        //把圖表畫出來
+        let chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+    <div id="linechart" style="width: 900px; height: 500px"></div>
+  </body>
+</html>
